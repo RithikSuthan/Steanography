@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SteanographyService } from 'src/app/services/steanography.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class RegisterComponent implements OnInit {
   otp:any;
   selectedFile: any;
   otpVerified:any;
-  constructor(private service:SteanographyService
+  constructor(private service:SteanographyService,private router:Router
   ) { }
   postObj={
     name:"",
@@ -75,6 +76,7 @@ export class RegisterComponent implements OnInit {
       (response) => {
         console.log(response);
         alert(response['message']);
+        this.router.navigateByUrl("/");
       },
       (error) => {
         console.error(error);

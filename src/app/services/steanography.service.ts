@@ -27,4 +27,9 @@ export class SteanographyService {
     const url=this.url+EndPoints.register;
     return this.http.post<any>(url,postObj);
   }
+  loginUser(postObj:any)
+  {
+    const url=this.url+EndPoints.login;
+    return this.http.post<any>(url,postObj);
+  }
 }

@@ -70,3 +70,31 @@ input:focus {
 .btn:hover {
     background-color: #0056b3;
 }
+
+
+/* styles.css */
+nav {
+    background-color: #007bff;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
