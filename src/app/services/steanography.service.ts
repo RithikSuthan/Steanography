@@ -22,4 +22,9 @@ export class SteanographyService {
       const url=this.url+EndPoints.verifyOTP;
       return this.http.post<any>(url,postObj);
   }
+  registerUser(postObj:any)
+  {
+    const url=this.url+EndPoints.register;
+    return this.http.post<any>(url,postObj);
+  }
 }

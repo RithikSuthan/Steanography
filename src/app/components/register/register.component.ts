@@ -15,7 +15,9 @@ export class RegisterComponent implements OnInit {
   ) { }
   postObj={
     name:"",
-    email:""
+    email:"",
+    friends:[],
+    password:""
   }
   ngOnInit(): void {
     this.otpVerified=false;
@@ -60,6 +62,19 @@ export class RegisterComponent implements OnInit {
         {
           this.otpVerified=true;
         }
+      },
+      (error) => {
+        console.error(error);
+        alert(error['message']);
+      }
+    );
+  }
+  registerUser()
+  {
+    this.service.registerUser(this.postObj).subscribe(
+      (response) => {
+        console.log(response);
+        alert(response['message']);
       },
       (error) => {
         console.error(error);

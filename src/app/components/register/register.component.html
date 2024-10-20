@@ -13,8 +13,17 @@
             [(ngModel)]="this.postObj.email"
              name="email"   
             >
-            <button type="submit" class="btn" (click)="generateOTP()">Send Otp</button>
+            
         </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your email" required
+            [(ngModel)]="this.postObj.password"
+             name="password"   
+            >
+            
+        </div>
+        <button type="submit" class="btn" (click)="generateOTP()">Send Otp</button>
         <div class="input-group">
             <label for="image">Upload OTP Image</label>
             <input type="file" id="uploadotp" required
@@ -22,6 +31,6 @@
             >
         </div>
         <button type="submit" class="btn" (click)="Verifyotp()" *ngIf="!otpVerified">Verify OTP</button>
-        <button type="submit" class="btn" *ngIf="otpVerified">Register</button>
+        <button type="submit" class="btn" *ngIf="otpVerified" (click)="registerUser()">Register</button>
     </form>
 </div>
