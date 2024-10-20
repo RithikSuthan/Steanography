@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div>
+    <h1>Photo Upload and Management</h1>
+  
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <input type="text" placeholder="Enter photo name" #photoNameInput>
+    <button (click)="uploadPhoto(photoNameInput.value)">Upload</button>
+  
+    <div *ngIf="loading">Loading images...</div>
+  
+    <div *ngFor="let image of images">
+      <h3>{{ image.photo_name }}</h3>
+      <img [src]="image.url" alt="{{ image.photo_name }}" style="width: 200px; height: auto;">
+      <button (click)="deletePhoto(image)">Delete</button>
+    </div>
+  </div>
+  

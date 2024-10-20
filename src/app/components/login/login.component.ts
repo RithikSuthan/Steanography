@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
       (response) => {
         console.log(response);
         alert(response['message']);
+        localStorage.setItem('email',this.postObj.email);
         this.router.navigateByUrl("/home");
       },
       (error) => {
