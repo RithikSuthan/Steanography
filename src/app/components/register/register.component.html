@@ -1,4 +1,8 @@
-<div class="container">
+<div class="container" style="display: flex;
+justify-content: center;
+position: relative;
+top: 125px;
+left: 555px;">
     <form class="register-form">
         <h2>Register</h2>
         <div class="input-group">
@@ -24,6 +28,7 @@
             
         </div>
         <button type="submit" class="btn" (click)="generateOTP()">Send Otp</button>
+        <br>
         <div class="input-group">
             <label for="image">Upload OTP Image</label>
             <input type="file" id="uploadotp" required
