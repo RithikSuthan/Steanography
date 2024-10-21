@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <h1>Photo Upload and Management</h1>
   
     <input type="file" (change)="onFileSelected($event)" accept="image/*">
@@ -13,4 +13,73 @@
       <button (click)="deletePhoto(image)">Delete</button>
     </div>
   </div>
+   -->
+
+
+   <div style="max-width: 800px; margin: 20px auto; padding: 20px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); border-radius: 8px; background-color: #f9f9f9;">
+    <h1 style="text-align: center; font-family: 'Arial', sans-serif; color: #333;">Photo Upload and Management</h1>
   
+    <!-- File Input -->
+    <div style="margin: 20px 0; text-align: center;">
+        <input 
+            type="file" 
+            (change)="onFileSelected($event)" 
+            accept="image/*" 
+            style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;"
+        >
+    </div>
+
+    <!-- Photo Name Input -->
+    <div style="margin-bottom: 20px; text-align: center;">
+        <input 
+            type="text" 
+            placeholder="Enter photo name" 
+            #photoNameInput 
+            style="padding: 10px; width: 50%; font-size: 16px; border-radius: 4px; border: 1px solid #ddd;"
+        >
+    </div>
+    
+    <!-- Upload Button -->
+    <div style="text-align: center;">
+        <button 
+            (click)="uploadPhoto(photoNameInput.value)" 
+            style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;"
+        >
+            Upload
+        </button>
+    </div>
+  
+    <!-- Loading Indicator -->
+    <div *ngIf="loading" style="text-align: center; margin: 20px 0; font-family: 'Arial', sans-serif; color: #888;">
+        Loading images...
+    </div>
+
+    <!-- Images Display Section -->
+    <div *ngFor="let image of images" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+        
+        <!-- Image Card -->
+        <div style="border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); overflow: hidden; background-color: white; max-width: 250px;">
+            <!-- Photo Name -->
+            <h3 style="margin: 0; padding: 10px; background-color: #4CAF50; color: white; font-family: 'Arial', sans-serif; text-align: center;">
+                {{ image.photo_name }}
+            </h3>
+
+            <!-- Image -->
+            <img 
+                [src]="image.url" 
+                alt="{{ image.photo_name }}" 
+                style="width: 100%; height: auto;"
+            >
+
+            <!-- Delete Button -->
+            <div style="padding: 10px; text-align: center;">
+                <button 
+                    (click)="deletePhoto(image)" 
+                    style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;"
+                >
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
